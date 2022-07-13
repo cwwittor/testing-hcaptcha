@@ -1,3 +1,9 @@
+<script type="text/javascript">
+  function onSubmit(token) {
+    document.getElementById("my-form").submit();
+  }
+</script>
+
 <body>
   <form action="https://submit-form.com/LnX2KxTg">
     <label for="name">Name</label>
@@ -17,12 +23,17 @@
       placeholder="Message"
       required=""
     ></textarea>
-    <div
+    <!-- <div
       class="h-captcha"
       data-sitekey="7d2d7b9b-4e05-4dc5-bb96-97ecca0e0bbb"
       data-size="invisible"
     ></div>
-    <script src="https://js.hcaptcha.com/1/api.js?onload=yourFunction&render=explicit" async defer></script>
-    <button type="submit">Send</button>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <button type="submit">Send</button> -->
+    <button
+      class="h-captcha"
+      data-sitekey="7d2d7b9b-4e05-4dc5-bb96-97ecca0e0bbb"
+      data-callback="onSubmit"
+    ></button>
   </form>
 </body>
