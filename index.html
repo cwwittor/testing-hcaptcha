@@ -10,13 +10,7 @@
         if (!document.getElementById('email').value) {
           alert('You must add text to the required field');
         } else {
-          hcaptcha.execute(widgetID, { async: true })
-            .then(({ response, key }) => {
-                console.log(response, key);
-            })
-            .catch(err => {
-                console.error(err);
-            });
+          hcaptcha.execute();
         }
       }
 
