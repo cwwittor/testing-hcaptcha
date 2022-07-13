@@ -1,39 +1,39 @@
-<script type="text/javascript">
-  function onSubmit(token) {
-    document.getElementById("my-form").submit();
-  }
-</script>
+<html>
+  <head>
+    <script>
+      function onSubmit(token) {
+        alert('thanks ' + document.getElementById('field').value);
+      }
 
-<body>
-  <form action="https://submit-form.com/LnX2KxTg">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Name" required="" />
-    <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Email"
-      required=""
-    />
-    <label for="message">Message</label>
-    <textarea
-      id="message"
-      name="message"
-      placeholder="Message"
-      required=""
-    ></textarea>
-    <!-- <div
-      class="h-captcha"
-      data-sitekey="7d2d7b9b-4e05-4dc5-bb96-97ecca0e0bbb"
-      data-size="invisible"
-    ></div>
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <button type="submit">Send</button> -->
-    <button
-      class="h-captcha"
-      data-sitekey="7d2d7b9b-4e05-4dc5-bb96-97ecca0e0bbb"
-      data-callback="onSubmit"
-    ></button>
-  </form>
-</body>
+      function validate(event) {
+        event.preventDefault();
+        if (!document.getElementById('field').value) {
+          alert('You must add text to the required field');
+        } else {
+          hcaptcha.execute();
+        }
+      }
+
+      function onload() {
+        var element = document.getElementById('submit');
+        element.onclick = validate;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Name: (required) <input id="field" name="field" />
+      <div
+        id="hcaptcha"
+        class="h-captcha"
+        data-sitekey="your_site_key"
+        data-callback="onSubmit"
+        data-size="invisible"
+      ></div>
+      <button id="submit">submit</button>
+    </form>
+    <script>
+      onload();
+    </script>
+  </body>
+</html>
