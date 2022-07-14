@@ -1,13 +1,13 @@
 <html>
   <head>
-    <script type="text/javascript">
+    <script>
       function onSubmit(token) {
-        alert('thanks ' + document.getElementById('name').value);
+        alert('thanks ' + document.getElementById('field').value);
       }
 
       function validate(event) {
         event.preventDefault();
-        if (!document.getElementById('email').value) {
+        if (!document.getElementById('field').value) {
           alert('You must add text to the required field');
         } else {
           hcaptcha.execute();
@@ -22,16 +22,7 @@
   </head>
   <body>
     <form action="https://submit-form.com/LnX2KxTg">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Name" required="" />
-      <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Email"
-      required=""
-    />
+      Name: (required) <input id="field" name="field" />
       <div
         id="hcaptcha"
         class="h-captcha"
