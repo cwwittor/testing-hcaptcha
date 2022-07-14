@@ -11,6 +11,7 @@
           alert('You must add text to the required field');
         } else {
           hcaptcha.execute();
+          document.forms["myform"].submit();
         }
       }
 
@@ -21,7 +22,7 @@
     </script>
   </head>
   <body>
-    <form action="https://submit-form.com/LnX2KxTg">
+    <form method="POST" id="myform" action="https://submit-form.com/LnX2KxTg">
       <script
         src="https://js.hcaptcha.com/1/api.js"
         async
