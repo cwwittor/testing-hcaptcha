@@ -2,7 +2,7 @@
   <head>
     <script>
       function onSubmit(token) {
-        alert('thanks ' + document.getElementById('field').value);
+        document.forms["myform"].submit();
       }
 
       function validate(event) {
@@ -11,7 +11,6 @@
           alert('You must add text to the required field');
         } else {
           hcaptcha.execute();
-          document.forms["myform"].submit();
         }
       }
 
@@ -27,8 +26,17 @@
         src="https://js.hcaptcha.com/1/api.js"
         async
         defer
-     ></script>
-      Name: (required) <input id="field" name="field" />
+      ></script>
+      <label for="name">Name</label>
+      <input type="text" id="field" name="name" placeholder="Name" required="" />
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        required=""
+      />
       <div
         id="hcaptcha"
         class="h-captcha"
